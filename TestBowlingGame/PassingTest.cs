@@ -11,13 +11,13 @@ public class PassingTest
         _game = new BowlingGame();
     }
 
-    private void RollMany(int pins, int rolls)
-    {
-        for (var i = 0; i < 20; i++)
-        {
-            _game.Roll(pins);
-        }
-    }
+    //private void RollMany(int pins, int rolls)
+    //{
+    //    for (var i = 0; i < 20; i++)
+    //    {
+    //        _game.Roll(pins);
+    //    }
+    //}
 
     [Fact]
     public void GivenAGameOfAllZeroShouldReturnAZeroScore()
@@ -26,7 +26,7 @@ public class PassingTest
 
         var pins = 0;
         var rolls = 20;
-        RollMany(pins, rolls);
+        //RollMany(pins, rolls);
         Assert.Equal(0, _game.Score());
     }
 
@@ -35,7 +35,7 @@ public class PassingTest
     {
         var pins = 1;
         var rolls = 20;
-        RollMany(pins, rolls);
+        //RollMany(pins, rolls);
         Assert.Equal(20, _game.Score());
     }
 }

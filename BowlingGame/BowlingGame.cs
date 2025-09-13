@@ -1,18 +1,32 @@
-﻿
+﻿using System.Security.Cryptography;
+
 namespace BowlingGameKata;
 
 public class BowlingGame
 {
     private int _score = 0;
-    public static void Main(string[] args)
+    private int _frame = 1;
+
+    public IPinDropper Dropper { get; set; } = new PinDropper();
+
+    public static void Main()
     {
         // Entry point logic here
     }
 
-    public void Roll(int pins)
+    public void Game()
     {
-        _score += pins;
+        _score = 0;
+        _frame = 1;
+        while (_frame <= 10)
+        {
+            Frame frame = new();
+            _score += frame.PlayFrame(Dropper);
+            _frame++;
+        }
     }
+
+    
 
     public int Score()
     {
